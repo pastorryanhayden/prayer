@@ -1,8 +1,8 @@
 <nav class="bg-gray-100  border-b-2 py-2 text-gray-800 fixed top-0 left-0 right-0 w-full z-50">
     <div class="px-1">
         <div class="flex items-center justify-center">
-            <a href="/sermons" class="inline-flex items-center">@component('svg.sermons') text-blue-500 h-12 -ml-4 -mr-2 @endcomponent
-                    <span class="text-lg uppercase tracking-wide inline-flex items-end -ml-2">{{ __('Sermons') }}</span></a>
+            <a href="/sermons" class="inline-flex items-center">@component('svg.prayer') text-blue-500 h-12 -ml-4 -mr-2 @endcomponent
+                    <span class="text-lg uppercase tracking-wide inline-flex items-end -ml-2">{{ __('Prayer') }}</span></a>
             
             <div data-title="Login/Account Settings" class="flex justify-end flex-grow flex-1 text-right items-center relative">
                 @guest

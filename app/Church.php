@@ -12,13 +12,16 @@ class Church extends Model
     // use Searchable;
     protected $guarded = [];
     protected $connection = 'userbase';
+
     public function admin()
     {
-        return $this->belongsTo('App\User', 'admin_id');
+        return $this->belongsTo(User::class, 'admin_id');
     }
+    
     public function users()
     {
         return $this->hasMany(User::class);
+    }
     
     public function settings()
     {
