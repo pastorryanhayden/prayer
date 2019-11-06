@@ -98,18 +98,22 @@ class RegisterController extends Controller
 
         $church->admin_id = $user->id;
         $church->save();
-        $church->series()->create([
-            'title' => 'No Series',
-            'description' => 'A catch all series for sermons with no series.'
-        ]);
-        
-        $church->settings()->create([
-            'title' => 'Sermons',
-            'subtitle' => "The Preaching Ministry of {$church->name}"
-        ]);
-        $church->podcast()->create([
-            'podcast_title' => "{$church->name} Preaching Podcast",
-            'podcast_description' => "Bible Sermons from {$church->name} in {$church->city}, {$church->state}."
+        $church->categories()->createMany([
+            [
+                'title' => 'Ministry'
+            ],
+            [
+                'title' => 'Missions'
+            ],
+            [
+                'title' => 'Health Needs'
+            ],
+            [
+                'title' => 'Spiritual/Salvation'
+            ],
+            [
+                'title' => 'Other'
+            ]
         ]);
          Mail::to($user->email)->send(new ChurchSignUp());
         return $user;

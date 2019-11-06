@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.prayer')
 
-@section('content')
+@section('prayercontent')
+
     <div class="flex items-center">
         <div class="md:w-1/2 md:mx-auto">
 
