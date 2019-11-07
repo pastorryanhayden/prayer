@@ -33,25 +33,8 @@ class SettingsController extends Controller
         $church->update($validatedData);
         return redirect('/settings');
     }
-    public function homepage()
-    {
-        $user = Auth::user();
-        $church = $user->church;
-        return view('settings.homepage', compact('church', 'user'));
-    }
-
-    public function homepagechange(Request $request)
-    {
-        $user = Auth::user();
-        $church = $user->church;
-        $validatedData = $request->validate([
-            'title' => 'required | min:6',
-            'subtitle' => 'required | min:6',
-            'header_photo' => 'nullable | url',
-        ]);
-        $church->settings()->update($validatedData);
-        return redirect('/settings/homepage');
-    }
+    
+    
 
     public function user()
     {
@@ -85,41 +68,6 @@ class SettingsController extends Controller
 
         return redirect('/settings/user');
     }
-    public function podcast()
-    {
-        $user = Auth::user();
-        $church = $user->church;
-        return view('settings.podcast', compact('church', 'user'));
-    }
-
-    public function podcastchange(Request $request)
-    {
-        $user = Auth::user();
-        $church = $user->church;
-        $validatedData = $request->validate([
-            'podcast_title' => 'required | min:6',
-            'podcast_description' => 'required | min:10',
-            'photo_url' => 'nullable | url',
-           
-        ]);
-        $church->podcast->update($validatedData);
-        return redirect('/settings/podcast');
-    }
-    public function removePodcastImage()
-    {
-        $user = Auth::user();
-        $church = $user->church;
-        $church->podcast->photo_url = null;
-        $church->podcast->save();
-        return redirect('/settings/podcast');
-    }
-    public function removeHomePageImage()
-    {
-        $user = Auth::user();
-        $church = $user->church;
-        $church->settings->header_photo = null;
-        $church->settings->save();
-        return redirect('/settings/homepage');
-    }
+ 
     
 }

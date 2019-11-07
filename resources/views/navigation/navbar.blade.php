@@ -9,7 +9,9 @@
                 <a class="no-underline hover:underline text-gray-800 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
                 <a class="no-underline hover:underline text-gray-800 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
                 @else
-                <a href="https://www.patreon.com/user?u=26067398" target="_blank" class="py-2 px-4 rounded-full bg-green-500 text-white mr-6 text-center">{{ __('Support') }} <span class="hidden md:inline">ChurchTools.co</span></a>
+                <a href="/print-handout/{{$church->id}}" alt="Print Handout" class="flex items-center mr-2 md:mr-6 hover:text-gray-500"> @component('svg.printer') h-4  mr-2 @endcomponent  <span class="hidden md:block">Print Handout</span></a>
+                <a href="/requests/create" alt="Add Request" class="flex items-center mr-2 md:mr-6 hover:text-gray-500"> @component('svg.add-solid') h-4  mr-2 @endcomponent  <span class="hidden md:block">Add Request</span></a>
+                <a href="https://www.patreon.com/user?u=26067398" target="_blank" class="py-2 px-3 md:px-4 rounded-full bg-green-500 text-white mr-2 md:mr-6 text-center text-sm md:text-normal hover:bg-green-700">{{ __('Support') }} <span class="hidden md:inline">ChurchTools.co</span></a>
                 <button onmouseover="showMenu()" onclick="showMenu()" class="flex justify-end items-end"><span class="rounded-full border bg-gray-100 text-gray-800 h-8 w-8 inline-flex items-center justify-center text-center p-4 hover:bg-gray-300">{{ $user->initials() }}</span>@component('svg.chevron-down') h-3 mb-1 text-gray-400 @endcomponent </button>
                
                 <div onmouseleave="hideMenu()" id="usermenu" class="hidden absolute top-0 right-0 bg-white mt-10 shadow flex flex-col items-start justify-start w-48 text-left">

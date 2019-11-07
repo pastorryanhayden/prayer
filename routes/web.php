@@ -24,13 +24,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/settings', 'SettingsController@church');
     Route::put('/settings', 'SettingsController@churchchange');
-    Route::get('/settings/homepage', 'SettingsController@homepage');
-    Route::put('/settings/homepage', 'SettingsController@homepagechange');
+    Route::get('/settings/categories', 'CategoriesController@index');
+    Route::post('/settings/categories', 'CategoriesController@store');
+    Route::put('/settings/categories/{category}', 'CategoriesController@update');
+    Route::delete('/settings/categories/{category}', 'CategoriesController@destroy');
     Route::get('/settings/user', 'SettingsController@user');
     Route::put('/settings/user', 'SettingsController@userchange');
     Route::get('/settings/users', 'ChurchUsersController@index');
     Route::post('/settings/users', 'ChurchUsersController@sendInvite');
-    Route::delete('/settings/homepage/removeimage', 'SettingsController@removeHomePageImage');
     Route::put('/manageuserpermissions/{user}', 'ChurchUsersController@updatePermissions')->name('update-permissions');
     Route::delete('/deleteuser/{user}', 'ChurchUsersController@destroy')->name('delete-user');
 });

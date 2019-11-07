@@ -13,4 +13,8 @@ class Request extends Model
     {
         return $this->belongsTo(Church::class);
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

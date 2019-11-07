@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <section class="sermons flex">
-    @include('navigation.sermonsnav', ['active' => 'settings'])
+    @include('navigation.prayernav', ['active' => 'settings'])
     @yield('sermonsContent')
     </section>
 @endsection
